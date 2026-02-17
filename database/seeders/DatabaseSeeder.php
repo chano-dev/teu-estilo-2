@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             // Um seeder grande ou vários pequenos — tu decides
             //AttributeSeeder::class,
             // Ou individualmente:
-            // ColorSeeder::class,
+            ColorSeeder::class,
             // SizeSeeder::class,
             // MaterialSeeder::class,
             // OccasionSeeder::class,
