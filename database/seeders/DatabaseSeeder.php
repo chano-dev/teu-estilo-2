@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             BodyTypeSeeder::class,
             CareInstructionSeeder::class,
             CertificationSeeder::class,
-            // HairTypeSeeder::class,
+            HairTypeSeeder::class,
             // HairTextureSeeder::class,
             // CapTypeSeeder::class,
             // HairDensitySeeder::class,

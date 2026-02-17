@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan make:migration:*)",
+      "Bash(php artisan migrate:*)",
+      "Bash(php artisan db:seed:*)",
+      "Bash(vendor/bin/pint:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(php artisan migrate:fresh:*)"
+    ]
+  }
+}
