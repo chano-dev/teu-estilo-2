@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             // Ou individualmente:
             ColorSeeder::class,
             SizeSeeder::class,
-            // MaterialSeeder::class,
+            MaterialSeeder::class,
             // OccasionSeeder::class,
             // StyleSeeder::class,
             // PatternSeeder::class,
