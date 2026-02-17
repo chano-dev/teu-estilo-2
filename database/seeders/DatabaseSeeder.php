@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             SupplierSeeder::class,
 
             // ── Batch 2: Fundação com FK ─────────────────────
-            //SubcategorySeeder::class,
+            SubcategorySeeder::class,
 
             // ── Batch 3: Atributos (sem FK) ──────────────────
             // Um seeder grande ou vários pequenos — tu decides
