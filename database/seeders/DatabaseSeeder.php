@@ -27,18 +27,18 @@ class DatabaseSeeder extends Seeder
 
             // ── Batch 3: Atributos (sem FK) ──────────────────
             // Um seeder grande ou vários pequenos — tu decides
-            //AttributeSeeder::class,
+            // AttributeSeeder::class,
             // Ou individualmente:
             ColorSeeder::class,
             SizeSeeder::class,
             MaterialSeeder::class,
             OccasionSeeder::class,
-            // StyleSeeder::class,
-            // PatternSeeder::class,
-            // FitSeeder::class,
-            // LengthSeeder::class,
-            // NecklineSeeder::class,
-            // SleeveSeeder::class,
+            StyleSeeder::class,
+            PatternSeeder::class,
+            FitSeeder::class,
+            LengthSeeder::class,
+            NecklineSeeder::class,
+            SleeveSeeder::class,
             // HeelTypeSeeder::class,
             // ClosureSeeder::class,
             // BodyTypeSeeder::class,
