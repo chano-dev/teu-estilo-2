@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
             HairTextureSeeder::class,
             CapTypeSeeder::class,
             HairDensitySeeder::class,
-            // HairOriginSeeder::class,
+            HairOriginSeeder::class,
 
             // ── Batch 4: Core (depende de subcategories, brands, collections) ──
             // ProductSeeder::class,
