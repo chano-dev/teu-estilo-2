@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Enums;
-enum Season: string 
+
+enum Season: string
 {
-    case Spring = 'Spring';
-    case Summer = 'Summer';
-    case Autumn = 'Autumn';
-    case Winter = 'Winter';
-    case Special = 'Special';
-    case AllYear = 'AllYear';
+    case SpringSummer = 'spring_summer';
+    case FallWinter = 'fall_winter';
+    case AllYear = 'all_year';
+    case Special = 'special';
 }

@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             SegmentSeeder::class,
             CategorySeeder::class,
             BrandSeeder::class,
-            //CollectionSeeder::class,
+            CollectionSeeder::class,
             //SupplierSeeder::class,
 
             // ── Batch 2: Fundação com FK ─────────────────────
