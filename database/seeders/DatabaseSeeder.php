@@ -54,10 +54,11 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             ServiceSeeder::class,
 
-            // ── Batch 6: Direct Relationships ──────
+            // Batch 6 - Relationship Tables
             ProductSupplierSeeder::class,
             ProductVariationSeeder::class,
-
+            // ProductImage, ProductService, ServiceImage, MarketingImage — no seeders (admin panel)
+            
             // ── Batch 7: Pivot Tables (depende de produtos, serviços, fornecedores) ──
 
         ]);
