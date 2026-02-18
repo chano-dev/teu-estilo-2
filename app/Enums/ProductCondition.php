@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Enums;
-enum ProductCondition: string 
+
+enum ProductCondition: string
 {
-    case New = 'New';
-    case Used = 'Used';
-    case SemiNew = 'SemiNew';
+    case New = 'new';
+    case Used = 'used';
+    case SemiNew = 'semi_new';
 }
