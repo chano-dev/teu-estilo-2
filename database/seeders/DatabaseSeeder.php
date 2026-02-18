@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
 
             // ── Batch 6: Direct Relationships ──────
             ProductSupplierSeeder::class,
-            //ProductVariationSeeder::class,
+            ProductVariationSeeder::class,
             //ProductImageSeeder::class,
             //ProductServiceSeeder::class,
             //ServiceImageSeeder::class,
