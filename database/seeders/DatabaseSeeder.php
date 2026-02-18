@@ -50,9 +50,9 @@ class DatabaseSeeder extends Seeder
             HairDensitySeeder::class,
             HairOriginSeeder::class,
 
-            // ── Batch 4: Core (depende de subcategories, brands, collections) ──
-            // ProductSeeder::class,
-            // ServiceSeeder::class,
+            // ── Batch 5: Core (depende de subcategories, brands, collections) ──
+            ProductSeeder::class,
+            ServiceSeeder::class,
 
             // ── Batch 5-7: Relationships, Pivots, Cart ──────
             // (adicionar quando criares esses seeders)
