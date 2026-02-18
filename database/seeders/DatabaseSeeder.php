@@ -58,8 +58,9 @@ class DatabaseSeeder extends Seeder
             ProductSupplierSeeder::class,
             ProductVariationSeeder::class,
             // ProductImage, ProductService, ServiceImage, MarketingImage — no seeders (admin panel)
-            
-            // ── Batch 7: Pivot Tables (depende de produtos, serviços, fornecedores) ──
+
+            // ── Batch 7: Pivot Tables + Product Attribute Relationships ──
+            ProductAttributeSeeder::class,
 
         ]);
     }
