@@ -118,7 +118,8 @@ class Product extends Model
 
     public function materials(): BelongsToMany
     {
-        return $this->belongsToMany(Material::class, 'product_materials');
+        return $this->belongsToMany(Material::class, 'product_materials')
+            ->withPivot('percentage');
     }
 
     public function occasions(): BelongsToMany
@@ -180,6 +181,32 @@ class Product extends Model
     public function certifications(): BelongsToMany
     {
         return $this->belongsToMany(Certification::class, 'product_certifications');
+    }
+
+    public function hairTypes(): BelongsToMany
+    {
+        return $this->belongsToMany(HairType::class, 'product_hair_types');
+    }
+
+    public function hairTextures(): BelongsToMany
+    {
+        return $this->belongsToMany(HairTexture::class, 'product_hair_textures');
+    }
+
+    public function capTypes(): BelongsToMany
+    {
+        return $this->belongsToMany(CapType::class, 'product_cap_types');
+    }
+
+    public function hairDensities(): BelongsToMany
+    {
+        return $this->belongsToMany(HairDensity::class, 'product_hair_densities');
+    }
+
+    public function hairOrigins(): BelongsToMany
+    {
+        return $this->belongsToMany(HairOrigin::class, 'product_hair_origins')
+            ->withPivot('percentage');
     }
 
     public function services(): BelongsToMany
