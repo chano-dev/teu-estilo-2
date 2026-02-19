@@ -62,6 +62,11 @@ class DatabaseSeeder extends Seeder
             // ── Batch 7: Pivot Tables + Product Attribute Relationships ──
             ProductAttributeSeeder::class,
 
+            // Batch 8 - Cart System & Services
+            ExchangeRateSeeder::class,
+            // ServiceAnnouncement, ServiceInquiry, Cart, CartItem, Wishlist,
+            // ProductView, CartWhatsappLog, PendingConfirmation — no seeders (runtime data)
+
         ]);
     }
 }
