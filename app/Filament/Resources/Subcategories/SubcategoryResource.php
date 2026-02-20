@@ -8,7 +8,6 @@ use App\Filament\Resources\Subcategories\Pages\ListSubcategories;
 use App\Filament\Resources\Subcategories\Schemas\SubcategoryForm;
 use App\Filament\Resources\Subcategories\Tables\SubcategoriesTable;
 use App\Models\Subcategory;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class SubcategoryResource extends Resource
 {
     protected static ?string $model = Subcategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $navigationGroup = 'Estrutura';
+    protected static string|\UnitEnum|null $navigationGroup = 'Estrutura';
 
     protected static ?string $modelLabel = 'Subcategoria';
 

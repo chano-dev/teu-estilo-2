@@ -8,7 +8,6 @@ use App\Filament\Resources\HairTypes\Pages\ListHairTypes;
 use App\Filament\Resources\HairTypes\Schemas\HairTypeForm;
 use App\Filament\Resources\HairTypes\Tables\HairTypesTable;
 use App\Models\HairType;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class HairTypeResource extends Resource
 {
     protected static ?string $model = HairType::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
 
-    protected static ?string $navigationGroup = 'Perucas';
+    protected static string|\UnitEnum|null $navigationGroup = 'Perucas';
 
     protected static ?string $modelLabel = 'Tipo de Cabelo';
 

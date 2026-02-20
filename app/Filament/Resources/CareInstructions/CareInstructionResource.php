@@ -8,7 +8,6 @@ use App\Filament\Resources\CareInstructions\Pages\ListCareInstructions;
 use App\Filament\Resources\CareInstructions\Schemas\CareInstructionForm;
 use App\Filament\Resources\CareInstructions\Tables\CareInstructionsTable;
 use App\Models\CareInstruction;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class CareInstructionResource extends Resource
 {
     protected static ?string $model = CareInstruction::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
 
-    protected static ?string $navigationGroup = 'Atributos Diferenciais';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos Diferenciais';
 
     protected static ?string $modelLabel = 'Instrução de Cuidado';
 

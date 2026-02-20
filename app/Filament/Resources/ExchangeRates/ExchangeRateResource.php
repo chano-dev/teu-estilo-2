@@ -8,7 +8,6 @@ use App\Filament\Resources\ExchangeRates\Pages\ListExchangeRates;
 use App\Filament\Resources\ExchangeRates\Schemas\ExchangeRateForm;
 use App\Filament\Resources\ExchangeRates\Tables\ExchangeRatesTable;
 use App\Models\ExchangeRate;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class ExchangeRateResource extends Resource
 {
     protected static ?string $model = ExchangeRate::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWrenchScrewdriver;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedWrenchScrewdriver;
 
-    protected static ?string $navigationGroup = 'Serviços';
+    protected static string|\UnitEnum|null $navigationGroup = 'Serviços';
 
     protected static ?string $modelLabel = 'Taxa de Câmbio';
 

@@ -8,7 +8,6 @@ use App\Filament\Resources\ServiceInquiries\Pages\ListServiceInquiries;
 use App\Filament\Resources\ServiceInquiries\Schemas\ServiceInquiryForm;
 use App\Filament\Resources\ServiceInquiries\Tables\ServiceInquiriesTable;
 use App\Models\ServiceInquiry;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class ServiceInquiryResource extends Resource
 {
     protected static ?string $model = ServiceInquiry::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWrenchScrewdriver;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedWrenchScrewdriver;
 
-    protected static ?string $navigationGroup = 'Serviços';
+    protected static string|\UnitEnum|null $navigationGroup = 'Serviços';
 
     protected static ?string $modelLabel = 'Consulta de Serviço';
 

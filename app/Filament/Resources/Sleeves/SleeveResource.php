@@ -8,7 +8,6 @@ use App\Filament\Resources\Sleeves\Pages\ListSleeves;
 use App\Filament\Resources\Sleeves\Schemas\SleeveForm;
 use App\Filament\Resources\Sleeves\Tables\SleevesTable;
 use App\Models\Sleeve;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class SleeveResource extends Resource
 {
     protected static ?string $model = Sleeve::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Manga';
 

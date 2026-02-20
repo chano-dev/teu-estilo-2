@@ -8,7 +8,6 @@ use App\Filament\Resources\Occasions\Pages\ListOccasions;
 use App\Filament\Resources\Occasions\Schemas\OccasionForm;
 use App\Filament\Resources\Occasions\Tables\OccasionsTable;
 use App\Models\Occasion;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class OccasionResource extends Resource
 {
     protected static ?string $model = Occasion::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Ocasião';
 

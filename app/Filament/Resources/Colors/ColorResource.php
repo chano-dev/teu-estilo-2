@@ -8,7 +8,6 @@ use App\Filament\Resources\Colors\Pages\ListColors;
 use App\Filament\Resources\Colors\Schemas\ColorForm;
 use App\Filament\Resources\Colors\Tables\ColorsTable;
 use App\Models\Color;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class ColorResource extends Resource
 {
     protected static ?string $model = Color::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Cor';
 

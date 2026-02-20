@@ -8,7 +8,6 @@ use App\Filament\Resources\Necklines\Pages\ListNecklines;
 use App\Filament\Resources\Necklines\Schemas\NecklineForm;
 use App\Filament\Resources\Necklines\Tables\NecklinesTable;
 use App\Models\Neckline;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class NecklineResource extends Resource
 {
     protected static ?string $model = Neckline::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Decote';
 

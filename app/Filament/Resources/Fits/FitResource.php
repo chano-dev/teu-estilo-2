@@ -8,7 +8,6 @@ use App\Filament\Resources\Fits\Pages\ListFits;
 use App\Filament\Resources\Fits\Schemas\FitForm;
 use App\Filament\Resources\Fits\Tables\FitsTable;
 use App\Models\Fit;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class FitResource extends Resource
 {
     protected static ?string $model = Fit::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Caimento';
 

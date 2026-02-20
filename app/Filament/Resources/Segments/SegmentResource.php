@@ -8,7 +8,6 @@ use App\Filament\Resources\Segments\Pages\ListSegments;
 use App\Filament\Resources\Segments\Schemas\SegmentForm;
 use App\Filament\Resources\Segments\Tables\SegmentsTable;
 use App\Models\Segment;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class SegmentResource extends Resource
 {
     protected static ?string $model = Segment::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $navigationGroup = 'Estrutura';
+    protected static string|\UnitEnum|null $navigationGroup = 'Estrutura';
 
     protected static ?string $modelLabel = 'Segmento';
 

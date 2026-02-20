@@ -8,7 +8,6 @@ use App\Filament\Resources\HairOrigins\Pages\ListHairOrigins;
 use App\Filament\Resources\HairOrigins\Schemas\HairOriginForm;
 use App\Filament\Resources\HairOrigins\Tables\HairOriginsTable;
 use App\Models\HairOrigin;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class HairOriginResource extends Resource
 {
     protected static ?string $model = HairOrigin::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
 
-    protected static ?string $navigationGroup = 'Perucas';
+    protected static string|\UnitEnum|null $navigationGroup = 'Perucas';
 
     protected static ?string $modelLabel = 'Origem do Cabelo';
 

@@ -8,7 +8,6 @@ use App\Filament\Resources\Styles\Pages\ListStyles;
 use App\Filament\Resources\Styles\Schemas\StyleForm;
 use App\Filament\Resources\Styles\Tables\StylesTable;
 use App\Models\Style;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class StyleResource extends Resource
 {
     protected static ?string $model = Style::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Estilo';
 

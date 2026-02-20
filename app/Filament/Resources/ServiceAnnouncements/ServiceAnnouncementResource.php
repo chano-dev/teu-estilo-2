@@ -8,7 +8,6 @@ use App\Filament\Resources\ServiceAnnouncements\Pages\ListServiceAnnouncements;
 use App\Filament\Resources\ServiceAnnouncements\Schemas\ServiceAnnouncementForm;
 use App\Filament\Resources\ServiceAnnouncements\Tables\ServiceAnnouncementsTable;
 use App\Models\ServiceAnnouncement;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class ServiceAnnouncementResource extends Resource
 {
     protected static ?string $model = ServiceAnnouncement::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWrenchScrewdriver;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedWrenchScrewdriver;
 
-    protected static ?string $navigationGroup = 'Serviços';
+    protected static string|\UnitEnum|null $navigationGroup = 'Serviços';
 
     protected static ?string $modelLabel = 'Anúncio de Serviço';
 

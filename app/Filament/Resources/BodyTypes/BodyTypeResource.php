@@ -8,7 +8,6 @@ use App\Filament\Resources\BodyTypes\Pages\ListBodyTypes;
 use App\Filament\Resources\BodyTypes\Schemas\BodyTypeForm;
 use App\Filament\Resources\BodyTypes\Tables\BodyTypesTable;
 use App\Models\BodyType;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class BodyTypeResource extends Resource
 {
     protected static ?string $model = BodyType::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
 
-    protected static ?string $navigationGroup = 'Atributos Diferenciais';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos Diferenciais';
 
     protected static ?string $modelLabel = 'Tipo de Corpo';
 

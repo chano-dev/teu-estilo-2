@@ -8,7 +8,6 @@ use App\Filament\Resources\HeelTypes\Pages\ListHeelTypes;
 use App\Filament\Resources\HeelTypes\Schemas\HeelTypeForm;
 use App\Filament\Resources\HeelTypes\Tables\HeelTypesTable;
 use App\Models\HeelType;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class HeelTypeResource extends Resource
 {
     protected static ?string $model = HeelType::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Tipo de Salto';
 

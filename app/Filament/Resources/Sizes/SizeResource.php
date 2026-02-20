@@ -8,7 +8,6 @@ use App\Filament\Resources\Sizes\Pages\ListSizes;
 use App\Filament\Resources\Sizes\Schemas\SizeForm;
 use App\Filament\Resources\Sizes\Tables\SizesTable;
 use App\Models\Size;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class SizeResource extends Resource
 {
     protected static ?string $model = Size::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Tamanho';
 

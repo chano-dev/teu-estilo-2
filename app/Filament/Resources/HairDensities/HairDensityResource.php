@@ -8,7 +8,6 @@ use App\Filament\Resources\HairDensities\Pages\ListHairDensities;
 use App\Filament\Resources\HairDensities\Schemas\HairDensityForm;
 use App\Filament\Resources\HairDensities\Tables\HairDensitiesTable;
 use App\Models\HairDensity;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class HairDensityResource extends Resource
 {
     protected static ?string $model = HairDensity::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
 
-    protected static ?string $navigationGroup = 'Perucas';
+    protected static string|\UnitEnum|null $navigationGroup = 'Perucas';
 
     protected static ?string $modelLabel = 'Densidade de Cabelo';
 

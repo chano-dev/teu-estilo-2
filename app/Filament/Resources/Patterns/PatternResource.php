@@ -8,7 +8,6 @@ use App\Filament\Resources\Patterns\Pages\ListPatterns;
 use App\Filament\Resources\Patterns\Schemas\PatternForm;
 use App\Filament\Resources\Patterns\Tables\PatternsTable;
 use App\Models\Pattern;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class PatternResource extends Resource
 {
     protected static ?string $model = Pattern::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Padrão';
 

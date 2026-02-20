@@ -8,7 +8,6 @@ use App\Filament\Resources\Lengths\Pages\ListLengths;
 use App\Filament\Resources\Lengths\Schemas\LengthForm;
 use App\Filament\Resources\Lengths\Tables\LengthsTable;
 use App\Models\Length;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class LengthResource extends Resource
 {
     protected static ?string $model = Length::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Comprimento';
 

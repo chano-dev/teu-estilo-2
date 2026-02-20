@@ -8,7 +8,6 @@ use App\Filament\Resources\CapTypes\Pages\ListCapTypes;
 use App\Filament\Resources\CapTypes\Schemas\CapTypeForm;
 use App\Filament\Resources\CapTypes\Tables\CapTypesTable;
 use App\Models\CapType;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class CapTypeResource extends Resource
 {
     protected static ?string $model = CapType::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
 
-    protected static ?string $navigationGroup = 'Perucas';
+    protected static string|\UnitEnum|null $navigationGroup = 'Perucas';
 
     protected static ?string $modelLabel = 'Tipo de Touca';
 

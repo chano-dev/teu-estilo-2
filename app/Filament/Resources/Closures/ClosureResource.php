@@ -8,7 +8,6 @@ use App\Filament\Resources\Closures\Pages\ListClosures;
 use App\Filament\Resources\Closures\Schemas\ClosureForm;
 use App\Filament\Resources\Closures\Tables\ClosuresTable;
 use App\Models\Closure;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class ClosureResource extends Resource
 {
     protected static ?string $model = Closure::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
-    protected static ?string $navigationGroup = 'Atributos';
+    protected static string|\UnitEnum|null $navigationGroup = 'Atributos';
 
     protected static ?string $modelLabel = 'Fecho';
 

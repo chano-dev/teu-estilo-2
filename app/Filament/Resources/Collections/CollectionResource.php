@@ -8,7 +8,6 @@ use App\Filament\Resources\Collections\Pages\ListCollections;
 use App\Filament\Resources\Collections\Schemas\CollectionForm;
 use App\Filament\Resources\Collections\Tables\CollectionsTable;
 use App\Models\Collection;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +17,9 @@ class CollectionResource extends Resource
 {
     protected static ?string $model = Collection::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedShoppingBag;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedShoppingBag;
 
-    protected static ?string $navigationGroup = 'Catálogo';
+    protected static string|\UnitEnum|null $navigationGroup = 'Catálogo';
 
     protected static ?string $modelLabel = 'Coleção';
 
