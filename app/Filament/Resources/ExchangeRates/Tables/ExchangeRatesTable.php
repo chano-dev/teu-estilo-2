@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class ExchangeRatesTable
@@ -16,31 +17,44 @@ class ExchangeRatesTable
         return $table
             ->columns([
                 TextColumn::make('currency_from')
-                    ->searchable(),
+                    ->label('De')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('currency_to')
+                    ->label('Para')
                     ->searchable(),
+
                 TextColumn::make('rate')
-                    ->numeric()
+                    ->label('Taxa')
+                    ->numeric(decimalPlaces: 4)
                     ->sortable(),
+
                 TextColumn::make('margin_percentage')
-                    ->numeric()
+                    ->label('Margem')
+                    ->suffix('%')
                     ->sortable(),
+
                 IconColumn::make('is_active')
-                    ->boolean(),
-                TextColumn::make('effective_from')
-                    ->dateTime()
+                    ->label('Activo')
+                    ->boolean()
                     ->sortable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('effective_from')
+                    ->label('Vigente desde')
+                    ->dateTime('d/m/Y H:i')
+                    ->sortable(),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Actualizado')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('effective_from', 'desc')
             ->filters([
-                //
+                TernaryFilter::make('is_active')
+                    ->label('Activo'),
             ])
             ->recordActions([
                 EditAction::make(),

@@ -7,6 +7,8 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class ServiceAnnouncementsTable
@@ -16,42 +18,61 @@ class ServiceAnnouncementsTable
         return $table
             ->columns([
                 TextColumn::make('service.name')
-                    ->searchable(),
+                    ->label('Serviço')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('title')
-                    ->searchable(),
+                    ->label('Título')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('status')
-                    ->badge()
-                    ->searchable(),
+                    ->label('Estado')
+                    ->badge(),
+
                 TextColumn::make('opens_at')
-                    ->dateTime()
+                    ->label('Abre em')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable(),
+
                 TextColumn::make('closes_at')
-                    ->dateTime()
+                    ->label('Fecha em')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable(),
-                TextColumn::make('next_opening_at')
-                    ->dateTime()
-                    ->sortable(),
+
                 TextColumn::make('internal_limit')
+                    ->label('Limite')
                     ->numeric()
-                    ->sortable(),
-                TextColumn::make('internal_used')
-                    ->numeric()
-                    ->sortable(),
-                IconColumn::make('show_countdown')
-                    ->boolean(),
-                IconColumn::make('is_active')
-                    ->boolean(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('internal_used')
+                    ->label('Utilizado')
+                    ->numeric()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                IconColumn::make('show_countdown')
+                    ->label('Contagem')
+                    ->boolean(),
+
+                IconColumn::make('is_active')
+                    ->label('Activo')
+                    ->boolean()
+                    ->sortable(),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Actualizado')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('opens_at', 'desc')
             ->filters([
-                //
+                TernaryFilter::make('is_active')
+                    ->label('Activo'),
+                SelectFilter::make('status')
+                    ->label('Estado')
+                    ->options(\App\Enums\AnnouncementStatus::class),
             ])
             ->recordActions([
                 EditAction::make(),

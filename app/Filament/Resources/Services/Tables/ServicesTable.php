@@ -8,8 +8,8 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
@@ -20,59 +20,56 @@ class ServicesTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('slug')
-                    ->searchable(),
-                TextColumn::make('short_description')
-                    ->searchable(),
+                    ->label('Nome')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('subcategory.name')
+                    ->label('Subcategoria')
                     ->searchable(),
-                TextColumn::make('segment.name')
-                    ->searchable(),
+
                 TextColumn::make('base_price')
-                    ->money()
+                    ->label('Preço Base')
+                    ->prefix('Kz ')
+                    ->numeric(decimalPlaces: 2)
                     ->sortable(),
+
                 TextColumn::make('price_type')
-                    ->badge()
-                    ->searchable(),
-                IconColumn::make('requires_measurements')
-                    ->boolean(),
-                IconColumn::make('requires_deposit')
-                    ->boolean(),
-                TextColumn::make('deposit_percentage')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('duration_minutes')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('max_advance_booking_days')
-                    ->numeric()
-                    ->sortable(),
-                ImageColumn::make('image_path'),
+                    ->label('Tipo')
+                    ->badge(),
+
                 IconColumn::make('is_active')
-                    ->boolean(),
-                IconColumn::make('is_featured')
-                    ->boolean(),
-                TextColumn::make('sort_order')
-                    ->numeric()
+                    ->label('Activo')
+                    ->boolean()
                     ->sortable(),
-                TextColumn::make('meta_title')
-                    ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+
+                IconColumn::make('is_featured')
+                    ->label('Destaque')
+                    ->boolean(),
+
+                TextColumn::make('sort_order')
+                    ->label('Ordem')
+                    ->sortable(),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Actualizado')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('deleted_at')
-                    ->dateTime()
+                    ->label('Eliminado')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('sort_order')
             ->filters([
                 TrashedFilter::make(),
+                TernaryFilter::make('is_active')
+                    ->label('Activo'),
+                TernaryFilter::make('is_featured')
+                    ->label('Destaque'),
             ])
             ->recordActions([
                 EditAction::make(),

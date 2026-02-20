@@ -8,6 +8,7 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class CollectionsTable
@@ -16,41 +17,58 @@ class CollectionsTable
     {
         return $table
             ->columns([
+                ImageColumn::make('image_path')
+                    ->label('Imagem')
+                    ->circular(),
+
                 TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('slug')
-                    ->searchable(),
-                ImageColumn::make('image_path'),
-                TextColumn::make('year'),
+                    ->label('Nome')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('year')
+                    ->label('Ano')
+                    ->sortable(),
+
                 TextColumn::make('season')
-                    ->badge()
-                    ->searchable(),
+                    ->label('Estação')
+                    ->badge(),
+
                 TextColumn::make('starts_at')
-                    ->date()
+                    ->label('Início')
+                    ->date('d/m/Y')
                     ->sortable(),
+
                 TextColumn::make('ends_at')
-                    ->date()
+                    ->label('Fim')
+                    ->date('d/m/Y')
                     ->sortable(),
+
                 IconColumn::make('is_active')
-                    ->boolean(),
-                IconColumn::make('is_featured')
-                    ->boolean(),
-                TextColumn::make('sort_order')
-                    ->numeric()
+                    ->label('Activo')
+                    ->boolean()
                     ->sortable(),
-                TextColumn::make('meta_title')
-                    ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+
+                IconColumn::make('is_featured')
+                    ->label('Destaque')
+                    ->boolean(),
+
+                TextColumn::make('sort_order')
+                    ->label('Ordem')
+                    ->sortable(),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Actualizado')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('sort_order')
             ->filters([
-                //
+                TernaryFilter::make('is_active')
+                    ->label('Activo'),
+                TernaryFilter::make('is_featured')
+                    ->label('Destaque'),
             ])
             ->recordActions([
                 EditAction::make(),

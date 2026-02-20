@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class SuppliersTable
@@ -16,57 +17,57 @@ class SuppliersTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->label('Nome')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('company_name')
+                    ->label('Empresa')
                     ->searchable(),
-                TextColumn::make('slug')
-                    ->searchable(),
-                TextColumn::make('tax_id')
-                    ->searchable(),
-                TextColumn::make('sku_code')
-                    ->searchable(),
-                TextColumn::make('email')
-                    ->label('Email address')
-                    ->searchable(),
+
                 TextColumn::make('phone')
+                    ->label('Telefone')
                     ->searchable(),
-                TextColumn::make('whatsapp')
-                    ->searchable(),
-                TextColumn::make('address')
-                    ->searchable(),
-                TextColumn::make('city')
-                    ->searchable(),
-                TextColumn::make('province')
-                    ->searchable(),
-                TextColumn::make('country')
-                    ->searchable(),
-                TextColumn::make('payment_terms')
-                    ->searchable(),
-                TextColumn::make('bank_name')
-                    ->searchable(),
-                TextColumn::make('bank_account')
-                    ->searchable(),
-                IconColumn::make('is_consignment')
-                    ->boolean(),
-                TextColumn::make('commission_percentage')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('rating')
-                    ->numeric()
-                    ->sortable(),
-                IconColumn::make('is_active')
-                    ->boolean(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
+
+                TextColumn::make('email')
+                    ->label('Email')
+                    ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('province')
+                    ->label('Província')
+                    ->searchable(),
+
+                IconColumn::make('is_consignment')
+                    ->label('Consignação')
+                    ->boolean(),
+
+                TextColumn::make('commission_percentage')
+                    ->label('Comissão')
+                    ->suffix('%')
+                    ->sortable(),
+
+                TextColumn::make('rating')
+                    ->label('Avaliação')
+                    ->sortable(),
+
+                IconColumn::make('is_active')
+                    ->label('Activo')
+                    ->boolean()
+                    ->sortable(),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Actualizado')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('name')
             ->filters([
-                //
+                TernaryFilter::make('is_active')
+                    ->label('Activo'),
+                TernaryFilter::make('is_consignment')
+                    ->label('Consignação'),
             ])
             ->recordActions([
                 EditAction::make(),

@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class HairOriginsTable
@@ -16,33 +17,39 @@ class HairOriginsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('slug')
-                    ->searchable(),
-                TextColumn::make('country_code')
-                    ->searchable(),
-                TextColumn::make('texture_profile')
-                    ->searchable(),
-                TextColumn::make('quality_tier')
-                    ->searchable(),
-                TextColumn::make('price_range')
-                    ->searchable(),
-                IconColumn::make('is_active')
-                    ->boolean(),
-                TextColumn::make('sort_order')
-                    ->numeric()
+                    ->label('Nome')
+                    ->searchable()
                     ->sortable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('country_code')
+                    ->label('País')
+                    ->searchable(),
+
+                TextColumn::make('quality_tier')
+                    ->label('Qualidade'),
+
+                TextColumn::make('price_range')
+                    ->label('Preço'),
+
+                IconColumn::make('is_active')
+                    ->label('Activo')
+                    ->boolean()
+                    ->sortable(),
+
+                TextColumn::make('sort_order')
+                    ->label('Ordem')
+                    ->sortable(),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Actualizado')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('sort_order')
             ->filters([
-                //
+                TernaryFilter::make('is_active')
+                    ->label('Activo'),
             ])
             ->recordActions([
                 EditAction::make(),

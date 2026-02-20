@@ -6,8 +6,9 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class ServiceInquiriesTable
@@ -17,49 +18,63 @@ class ServiceInquiriesTable
         return $table
             ->columns([
                 TextColumn::make('service.name')
-                    ->searchable(),
-                TextColumn::make('user.name')
-                    ->searchable(),
+                    ->label('Serviço')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->label('Nome')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('phone')
+                    ->label('Telefone')
                     ->searchable(),
-                TextColumn::make('email')
-                    ->label('Email address')
-                    ->searchable(),
-                ImageColumn::make('image_path'),
-                ImageColumn::make('image_path_2'),
+
                 TextColumn::make('budget')
-                    ->numeric()
+                    ->label('Orçamento')
+                    ->prefix('Kz ')
+                    ->numeric(decimalPlaces: 2)
                     ->sortable(),
-                TextColumn::make('shein_total_usd')
-                    ->numeric()
-                    ->sortable(),
+
                 TextColumn::make('estimated_total_aoa')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('status')
-                    ->badge()
-                    ->searchable(),
-                IconColumn::make('whatsapp_sent')
-                    ->boolean(),
-                TextColumn::make('contacted_at')
-                    ->dateTime()
-                    ->sortable(),
-                TextColumn::make('completed_at')
-                    ->dateTime()
-                    ->sortable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label('Total AOA')
+                    ->prefix('Kz ')
+                    ->numeric(decimalPlaces: 2)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('status')
+                    ->label('Estado')
+                    ->badge(),
+
+                IconColumn::make('whatsapp_sent')
+                    ->label('WhatsApp')
+                    ->boolean(),
+
+                TextColumn::make('contacted_at')
+                    ->label('Contactado')
+                    ->dateTime('d/m/Y H:i')
+                    ->sortable(),
+
+                TextColumn::make('created_at')
+                    ->label('Criado')
+                    ->dateTime('d/m/Y H:i')
+                    ->sortable(),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Actualizado')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
-                //
+                SelectFilter::make('status')
+                    ->label('Estado')
+                    ->options(\App\Enums\InquiryStatus::class),
+                TernaryFilter::make('whatsapp_sent')
+                    ->label('WhatsApp Enviado'),
             ])
             ->recordActions([
                 EditAction::make(),

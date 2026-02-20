@@ -6,7 +6,9 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class BrandsTable
@@ -15,38 +17,48 @@ class BrandsTable
     {
         return $table
             ->columns([
+                ImageColumn::make('logo_path')
+                    ->label('Logo')
+                    ->circular(),
+
                 TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('slug')
-                    ->searchable(),
-                TextColumn::make('logo_path')
-                    ->searchable(),
-                TextColumn::make('banner_path')
-                    ->searchable(),
-                TextColumn::make('country_origin')
-                    ->searchable(),
-                TextColumn::make('website')
-                    ->searchable(),
-                IconColumn::make('is_active')
-                    ->boolean(),
-                IconColumn::make('is_featured')
-                    ->boolean(),
-                TextColumn::make('sort_order')
-                    ->numeric()
+                    ->label('Nome')
+                    ->searchable()
                     ->sortable(),
-                TextColumn::make('meta_title')
+
+                TextColumn::make('country_origin')
+                    ->label('País')
                     ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
+
+                TextColumn::make('website')
+                    ->label('Website')
                     ->toggleable(isToggledHiddenByDefault: true),
+
+                IconColumn::make('is_active')
+                    ->label('Activo')
+                    ->boolean()
+                    ->sortable(),
+
+                IconColumn::make('is_featured')
+                    ->label('Destaque')
+                    ->boolean(),
+
+                TextColumn::make('sort_order')
+                    ->label('Ordem')
+                    ->sortable(),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Actualizado')
+                    ->dateTime('d/m/Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('sort_order')
             ->filters([
-                //
+                TernaryFilter::make('is_active')
+                    ->label('Activo'),
+                TernaryFilter::make('is_featured')
+                    ->label('Destaque'),
             ])
             ->recordActions([
                 EditAction::make(),
