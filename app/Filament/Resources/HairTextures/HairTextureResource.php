@@ -18,7 +18,17 @@ class HairTextureResource extends Resource
 {
     protected static ?string $model = HairTexture::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
+
+    protected static ?string $navigationGroup = 'Perucas';
+
+    protected static ?string $modelLabel = 'Textura de Cabelo';
+
+    protected static ?string $pluralModelLabel = 'Texturas de Cabelo';
+
+    protected static ?int $navigationSort = 2;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

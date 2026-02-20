@@ -18,7 +18,17 @@ class ExchangeRateResource extends Resource
 {
     protected static ?string $model = ExchangeRate::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWrenchScrewdriver;
+
+    protected static ?string $navigationGroup = 'Serviços';
+
+    protected static ?string $modelLabel = 'Taxa de Câmbio';
+
+    protected static ?string $pluralModelLabel = 'Taxas de Câmbio';
+
+    protected static ?int $navigationSort = 2;
+
+    protected static ?string $recordTitleAttribute = 'currency_from';
 
     public static function form(Schema $schema): Schema
     {

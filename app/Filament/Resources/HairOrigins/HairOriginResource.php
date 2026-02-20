@@ -18,7 +18,17 @@ class HairOriginResource extends Resource
 {
     protected static ?string $model = HairOrigin::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
+
+    protected static ?string $navigationGroup = 'Perucas';
+
+    protected static ?string $modelLabel = 'Origem do Cabelo';
+
+    protected static ?string $pluralModelLabel = 'Origens de Cabelo';
+
+    protected static ?int $navigationSort = 5;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

@@ -18,7 +18,17 @@ class BodyTypeResource extends Resource
 {
     protected static ?string $model = BodyType::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
+
+    protected static ?string $navigationGroup = 'Atributos Diferenciais';
+
+    protected static ?string $modelLabel = 'Tipo de Corpo';
+
+    protected static ?string $pluralModelLabel = 'Tipos de Corpo';
+
+    protected static ?int $navigationSort = 1;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

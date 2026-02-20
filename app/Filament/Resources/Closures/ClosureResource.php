@@ -18,7 +18,17 @@ class ClosureResource extends Resource
 {
     protected static ?string $model = Closure::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+
+    protected static ?string $navigationGroup = 'Atributos';
+
+    protected static ?string $modelLabel = 'Fecho';
+
+    protected static ?string $pluralModelLabel = 'Fechos';
+
+    protected static ?int $navigationSort = 12;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

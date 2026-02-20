@@ -18,7 +18,17 @@ class StyleResource extends Resource
 {
     protected static ?string $model = Style::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+
+    protected static ?string $navigationGroup = 'Atributos';
+
+    protected static ?string $modelLabel = 'Estilo';
+
+    protected static ?string $pluralModelLabel = 'Estilos';
+
+    protected static ?int $navigationSort = 5;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

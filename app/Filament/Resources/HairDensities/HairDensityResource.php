@@ -18,7 +18,17 @@ class HairDensityResource extends Resource
 {
     protected static ?string $model = HairDensity::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
+
+    protected static ?string $navigationGroup = 'Perucas';
+
+    protected static ?string $modelLabel = 'Densidade de Cabelo';
+
+    protected static ?string $pluralModelLabel = 'Densidades de Cabelo';
+
+    protected static ?int $navigationSort = 4;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

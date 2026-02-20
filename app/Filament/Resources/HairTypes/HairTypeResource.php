@@ -18,7 +18,17 @@ class HairTypeResource extends Resource
 {
     protected static ?string $model = HairType::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
+
+    protected static ?string $navigationGroup = 'Perucas';
+
+    protected static ?string $modelLabel = 'Tipo de Cabelo';
+
+    protected static ?string $pluralModelLabel = 'Tipos de Cabelo';
+
+    protected static ?int $navigationSort = 1;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

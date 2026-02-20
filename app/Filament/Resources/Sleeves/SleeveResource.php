@@ -18,7 +18,17 @@ class SleeveResource extends Resource
 {
     protected static ?string $model = Sleeve::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+
+    protected static ?string $navigationGroup = 'Atributos';
+
+    protected static ?string $modelLabel = 'Manga';
+
+    protected static ?string $pluralModelLabel = 'Mangas';
+
+    protected static ?int $navigationSort = 10;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

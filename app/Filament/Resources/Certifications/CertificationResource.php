@@ -18,7 +18,17 @@ class CertificationResource extends Resource
 {
     protected static ?string $model = Certification::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
+
+    protected static ?string $navigationGroup = 'Atributos Diferenciais';
+
+    protected static ?string $modelLabel = 'Certificação';
+
+    protected static ?string $pluralModelLabel = 'Certificações';
+
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

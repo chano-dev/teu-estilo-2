@@ -18,7 +18,17 @@ class LengthResource extends Resource
 {
     protected static ?string $model = Length::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+
+    protected static ?string $navigationGroup = 'Atributos';
+
+    protected static ?string $modelLabel = 'Comprimento';
+
+    protected static ?string $pluralModelLabel = 'Comprimentos';
+
+    protected static ?int $navigationSort = 8;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

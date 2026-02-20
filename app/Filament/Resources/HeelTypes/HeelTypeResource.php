@@ -18,7 +18,17 @@ class HeelTypeResource extends Resource
 {
     protected static ?string $model = HeelType::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+
+    protected static ?string $navigationGroup = 'Atributos';
+
+    protected static ?string $modelLabel = 'Tipo de Salto';
+
+    protected static ?string $pluralModelLabel = 'Tipos de Salto';
+
+    protected static ?int $navigationSort = 11;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

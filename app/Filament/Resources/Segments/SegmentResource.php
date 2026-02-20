@@ -20,6 +20,14 @@ class SegmentResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?string $navigationGroup = 'Estrutura';
+
+    protected static ?string $modelLabel = 'Segmento';
+
+    protected static ?string $pluralModelLabel = 'Segmentos';
+
+    protected static ?int $navigationSort = 1;
+
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
@@ -34,9 +42,7 @@ class SegmentResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array

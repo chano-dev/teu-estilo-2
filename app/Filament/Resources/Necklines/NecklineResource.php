@@ -18,7 +18,17 @@ class NecklineResource extends Resource
 {
     protected static ?string $model = Neckline::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+
+    protected static ?string $navigationGroup = 'Atributos';
+
+    protected static ?string $modelLabel = 'Decote';
+
+    protected static ?string $pluralModelLabel = 'Decotes';
+
+    protected static ?int $navigationSort = 9;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

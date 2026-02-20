@@ -18,7 +18,17 @@ class CapTypeResource extends Resource
 {
     protected static ?string $model = CapType::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedScissors;
+
+    protected static ?string $navigationGroup = 'Perucas';
+
+    protected static ?string $modelLabel = 'Tipo de Touca';
+
+    protected static ?string $pluralModelLabel = 'Tipos de Touca';
+
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

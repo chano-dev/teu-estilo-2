@@ -18,7 +18,17 @@ class CareInstructionResource extends Resource
 {
     protected static ?string $model = CareInstruction::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
+
+    protected static ?string $navigationGroup = 'Atributos Diferenciais';
+
+    protected static ?string $modelLabel = 'Instrução de Cuidado';
+
+    protected static ?string $pluralModelLabel = 'Instruções de Cuidado';
+
+    protected static ?int $navigationSort = 2;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

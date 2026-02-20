@@ -18,7 +18,17 @@ class ServiceInquiryResource extends Resource
 {
     protected static ?string $model = ServiceInquiry::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWrenchScrewdriver;
+
+    protected static ?string $navigationGroup = 'Serviços';
+
+    protected static ?string $modelLabel = 'Consulta de Serviço';
+
+    protected static ?string $pluralModelLabel = 'Consultas de Serviço';
+
+    protected static ?int $navigationSort = 4;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

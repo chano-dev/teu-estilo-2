@@ -18,7 +18,17 @@ class PatternResource extends Resource
 {
     protected static ?string $model = Pattern::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
+
+    protected static ?string $navigationGroup = 'Atributos';
+
+    protected static ?string $modelLabel = 'Padrão';
+
+    protected static ?string $pluralModelLabel = 'Padrões';
+
+    protected static ?int $navigationSort = 6;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

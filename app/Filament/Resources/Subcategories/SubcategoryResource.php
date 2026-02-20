@@ -20,6 +20,16 @@ class SubcategoryResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?string $navigationGroup = 'Estrutura';
+
+    protected static ?string $modelLabel = 'Subcategoria';
+
+    protected static ?string $pluralModelLabel = 'Subcategorias';
+
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function form(Schema $schema): Schema
     {
         return SubcategoryForm::configure($schema);
