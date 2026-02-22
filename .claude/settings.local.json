@@ -9,7 +9,15 @@
       "Bash(git commit:*)",
       "Bash(php artisan migrate:fresh:*)",
       "Bash(php artisan make:seeder:*)",
-      "mcp__laravel-boost__tinker"
+      "mcp__laravel-boost__tinker",
+      "mcp__laravel-boost__application-info",
+      "Bash(php artisan make:filament-resource:*)",
+      "Bash(php artisan:*)",
+      "Bash(findstr:*)",
+      "Bash(php -r:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(php:*)",
+      "Bash(del:*)"
     ]
   }
 }
